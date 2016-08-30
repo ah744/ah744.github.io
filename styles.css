@@ -8,26 +8,40 @@
 	.name {
 	  color: black;
 	  padding-top: 300px;
-	  padding-bottom:400px;
+	  padding-bottom:20px;
+	  margin-bottom:400px;
+	}
+	.separate-bar{
+	  background-color: #ececec;
+  	  padding-left: 80px;
+	  padding-right: 80px;
+	  border-top: 200px;
+	  border-bottom: 200px;	  
 	}
 	.about-box{
 	  font-size: 18px;
 	  background-color:white;
-	  padding-bottom:20px;
+	  margin-bottom:400px;
+	  margin-top:400px;
 	}
 	#portfolio-box{
 	  background-color: #ececec;
 	  padding-left: 80px;
 	  padding-top: 20px;
+	  margin-top: 400px;
+	  margin-bottom: 400px;
 	  padding-right: 80px;
 	  padding-bottom:20px;
 	  font-size: 18px;
 	}
 	.contact-box{
 	  background-color:white;
-	  padding-top:10px;
+	  padding-top:200px;
+	  padding-bottom:200px;
 	  margin-left:-90px;
 	  margin-right:-90px;
+	  margin-top:400px;
+	  margin-bottom:400px;
 
 	}
 	.btn {
