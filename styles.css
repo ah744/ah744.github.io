@@ -1,0 +1,54 @@
+  	body{
+  	  background-color: white;
+  	  font-family: Computer Modern Serif, sans-serif;
+  	}
+  	h4{
+  	  font-size: 22px;
+  	 }
+	.name {
+	  color: black;
+	  padding-top: 200px;
+	  padding-bottom:200px;
+	}
+	#about-box{
+	  font-size: 18px;
+	  padding-left: 80px;
+	  padding-right: 80px;
+	  padding-top: 20px;
+	  padding-bottom: 20px;
+	}
+	#portfolio-box{
+	  background-color: #ececec;
+	  padding-left: 80px;
+	  padding-top: 20px;
+	  padding-right: 80px;
+	  padding-bottom:20px;
+	  font-size: 18px;
+	}
+	.contact-box{
+	  background-color:white;
+	  padding-top:10px;
+	  margin-left:-90px;
+	  margin-right:-90px;
+
+	}
+	.paper-box{
+	  padding-top: 5px;
+	  padding-bottom: 20px;
+	}
+	.software-box{
+	  background-color: white;
+	  padding-top: 5px;
+	  padding-bottom: 5px;
+	  font-size: 14px;
+	}
+	.form-box{
+	  padding-left:300px;
+	  padding-right:300px;
+	  padding-bottom:50px;
+	}
+	.software-gap{
+	  padding-top:10px;
+	  padding-bottom:10px;
+	  background-color:#ececec;
+	}
