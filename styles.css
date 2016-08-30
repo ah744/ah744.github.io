@@ -10,12 +10,10 @@
 	  padding-top: 300px;
 	  padding-bottom:400px;
 	}
-	#about-box{
+	.about-box{
 	  font-size: 18px;
-	  padding-left: 80px;
-	  padding-right: 80px;
-	  padding-top: 20px;
-	  padding-bottom: 20px;
+	  background-color:white;
+	  padding-bottom:20px;
 	}
 	#portfolio-box{
 	  background-color: #ececec;
