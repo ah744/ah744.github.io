@@ -1,0 +1,54 @@
+me {
+  color: black;
+  padding-top: -20px;
+}
+#about-box{
+  font-size: 18px;
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+#portfolio-box{
+  background-color: #ececec;
+  padding-left: 80px;
+  padding-top: 20px;
+  padding-right: 80px;
+  padding-bottom:20px;
+  font-size: 18px;
+}
+.contact-box{
+  background-color:white;
+  padding-top:10px;
+  margin-left:-90px;
+  margin-right:-90px;
+}
+.paper-box{
+  padding-top: 5px;
+  padding-bottom: 20px;
+}
+.software-box{
+  background-color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 14px;
+}
+#bar{
+  padding-top: 30px;
+  padding-left: 800px;
+}
+.form-box{
+  padding-left:300px;
+  padding-right:300px;
+}
+.social-media-bar{
+  padding-left:300px;
+  padding-right:300px;
+  padding-bottom:20px;
+}
+.social-icons{
+  padding-left:375px;
+  padding-right:300px;
+  padding-bottom:20px;
+}
+
