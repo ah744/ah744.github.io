@@ -9,7 +9,7 @@
 	  color: black;
 	  padding-top: 300px;
 	  padding-bottom:20px;
-	  margin-bottom:400px;
+	  margin-bottom:200px;
 	}
 	.separate-bar{
 	  background-color: #ececec;
@@ -21,15 +21,15 @@
 	.about-box{
 	  font-size: 18px;
 	  background-color:white;
-	  margin-bottom:400px;
-	  margin-top:400px;
+	  margin-bottom:200px;
+	  margin-top:200px;
 	}
 	#portfolio-box{
 	  background-color: #ececec;
 	  padding-left: 80px;
 	  padding-top: 20px;
-	  margin-top: 400px;
-	  margin-bottom: 400px;
+	  margin-top: 200px;
+	  margin-bottom: 200px;
 	  padding-right: 80px;
 	  padding-bottom:20px;
 	  font-size: 18px;
@@ -40,7 +40,7 @@
 	  padding-bottom:200px;
 	  margin-left:-90px;
 	  margin-right:-90px;
-	  margin-top:400px;
+	  margin-top:200px;
 	  margin-bottom:400px;
 
 	}
