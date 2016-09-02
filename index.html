@@ -5,6 +5,41 @@
 <link rel="stylesheet" href="./css/font-awesome.min.css"/>
 <link rel="stylesheet" href="styles.css">
 <link rel="shortcut icon" type="image/x-icon" href="/favicon-font.ico?">
+<script type="text/javascript" src="./js/ScrollToPlugin.min.js"></script>
+<script>
+	// init controller
+	var controller = new ScrollMagic.Controller();
+
+	// build tween
+	var tween = TweenMax.from("#animate", 0.5, {autoAlpha: 0, scale: 0.7});
+
+	// build scene
+	var scene = new ScrollMagic.Scene({triggerElement: "a#top", duration: 200, triggerHook: "onLeave"})
+					.setTween(tween)
+					.addIndicators() // add indicators (requires plugin)
+					.addTo(controller);
+
+	// change behaviour of controller to animate scroll instead of jump
+	controller.scrollTo(function (newpos) {
+		TweenMax.to(window, 0.5, {scrollTo: {y: newpos}});
+	});
+
+	//  bind scroll to anchor links
+	$(document).on("click", "a[href^='#']", function (e) {
+		var id = $(this).attr("href");
+		if ($(id).length > 0) {
+			e.preventDefault();
+
+			// trigger scroll
+			controller.scrollTo(id);
+
+				// if supported by the browser we can even update the URL.
+			if (window.history && window.history.pushState) {
+				history.pushState("", document.title, id);
+			}
+		}
+	});
+</script>
 </head>
 <div class='container fluid' id='back'>
 	<div class='name'> 
@@ -29,9 +64,8 @@
   </svg>
 
 	<div class='about-box'>
-		<div class='rows'>			<h1 class='text-center'> About </h1>
+		<h1 class='text-center'> About </h1>
     			I work on quantum computing architecture and theory as a graduate student pursuing a Ph.D. at the University of Chicago. I graduated with a bachelor's degree in physics concentrating in computer science from Cornell University in May 2016. During my time there I worked in physics research characterizing properties and fabrication techniques of superconducting materials, modeling liquid helium cooling manifolds for synchrotons and linear accelerators, building a compiler toolchain for quantum computation, and performing high level system design of quantum information devices.
-		</div>
 	</div>
   <div class='about-box'> </div>
   
