@@ -40,7 +40,7 @@ blockquote footer {
 }
 
 .quote{
-  margin-top:500px;
+  margin-top:300px;
   margin-bottom:200px;
  }
 
@@ -53,10 +53,6 @@ blockquote footer {
   -moz-box-shadow: inset 0 0 10px #000000;
   -webkit-box-shadow: inset 0 0 10px #000000;
   box-shadow: inset 0 0 10px #000000;
-}
-
-#tweetOut.disabled {
-  opacity:0.9;
 }
 
 bottom-line {
