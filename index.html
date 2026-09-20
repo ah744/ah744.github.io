@@ -30,7 +30,11 @@
 
 	<div class='about-box'>
 		<h1 class='text-center'> About </h1>
-    			I work on quantum computing architecture and theory as a graduate student pursuing a Ph.D. at the University of Chicago. I graduated with a bachelor's degree in physics concentrating in computer science from Cornell University in May 2016. During my time there I worked in physics research characterizing properties and fabrication techniques of superconducting materials, modeling liquid helium cooling manifolds for synchrotons and linear accelerators, building a compiler toolchain for quantum computation, and performing high level system design of quantum information devices.
+			<p>I am a research scientist working in quantum information and quantum error correction at NVIDIA Applied Research.</p>
+
+			<p>I previously worked on quantum information theory and simulation as a Quantum Information Scientist and Quantum Information Department Head at HRL Laboratories (now a part of IBM Research).</p>
+
+			<p>I received my master's degree and Ph.D. from the University of Chicago in 2020 in computer science and quantum system architecture, and a bachelor's degree physics concentrating in computer science from Cornell University in 2016. I am primarily interested in efficient quantum error correction and error mitigation protocols, quantum algorithm design and architectural optimization, and interesting ways to prove scaling properties of quantum information processing techniques. Through my academic career I have worked in research characterizing properties and fabrication techniques of superconducting materials, modeling liquid helium cooling manifolds for synchrotrons and linear accelerators, building compiler toolchains for quantum computing platforms, and performing detailed system design of quantum information processing devices.</p>
 	</div>
   <div class='about-box'> </div>
   
@@ -45,41 +49,54 @@
     <h1 class='text-center'> Projects </h1>
     <div class='row'>
       <div class='col-md-4 text-center'>
-        <h4> Software </h4>
-		<a href="https://github.com/ah744/QML" style="color:black" target="_blank"><button class='btn btn-block soft-btn'>
-						<b>Machine Learning</b><br>ML Algorithm Implementation Collection</button></a>
-		<div class='software-gap'> </div>
-		<a href="https://github.com/epiqc/ScaffCC" style="color:black" target="_blank"><button class='btn btn-block soft-btn'>
-						<b>ScaffCC:</b><br>Scaffold Compiler Collection</button></a>
+        <h4> Quantum Error Correction </h4>
+		<a href="https://arxiv.org/abs/2609.13388" style="color:black" target="_blank"><button class='btn btn-block soft-btn'>
+						<b>CUDA-Q Logical:</b><br>Retargetable Compilation for<br>Fault-Tolerant Quantum Computing</button></a>
+		<div class='paper-desc'>Compiler infrastructure that maps logical programs onto heterogeneous QEC codes, fault-tolerant execution models, and real-time classical control.</div>
 		<div class='software-gap'> </div>
 
-        <a href="https://github.com/epiqc/RKQC"style="color:black" target="_blank"><button class='btn  btn-block soft-btn'>
-						<b>RKQC:</b><br>Revkit for Quantum Computation</button></a>
+		<a href="https://arxiv.org/abs/2004.04794" style="color:black" target="_blank"><button class='btn btn-block soft-btn'>
+						<b>NISQ+:</b><br>Boosting Quantum Computing Power by<br>Approximating Quantum Error Correction</button></a>
+		<div class='paper-desc'>Adapts error correction into an approximate, hardware-accelerated form to extend the compute volume reachable by near-term machines.</div>
+		<div class='software-gap'> </div>
+
+		<a href="https://arxiv.org/abs/1708.09283" style="color:black" target="_blank"><button class='btn btn-block soft-btn'>
+						<b>Optimized Surface Code Communication</b><br>in Superconducting Quantum Computers</button></a>
+		<div class='paper-desc'>Compilation, scheduling, and network simulation of planar and double-defect surface codes, showing when simpler codes win under congestion.</div>
       </div>
 
       <div class='col-md-4 text-center'>
-        <h4> Academic Papers </h4>
-        <a href="http://dl.acm.org/citation.cfm?id=2694357" style="color:black" target="_blank"><button class='btn btn-block soft-btn'>
-						Compiler Management of Communication<br>and Parallelism for Quantum Computation</button></a>
+        <h4> Fault-Tolerant Architecture </h4>
+        <a href="https://arxiv.org/abs/1809.01302" style="color:black" target="_blank"><button class='btn btn-block soft-btn'>
+						<b>Magic-State Functional Units:</b><br>Mapping and Scheduling Multi-Level<br>Distillation Circuits</button></a>
+		<div class='paper-desc'>First detailed hardware designs of space-time optimized magic-state factories for surface code error-corrected machines.</div>
 		<div class='software-gap'> </div>
-        <a href="http://scitation.aip.org/content/aip/proceeding/aipcp/10.1063/1.4860825"style="color:black" target="_blank"><button class='btn btn-block soft-btn'>
-						Managing Parallel Cryogenic Flows<br>to the Thermal Intercepts in the Cornell ERL</button></a>
+
+        <a href="https://arxiv.org/abs/1904.11528" style="color:black" target="_blank"><button class='btn btn-block soft-btn'>
+						<b>Resource Optimized Quantum Architectures</b><br>for Surface Code Implementations<br>of Magic-State Distillation</button></a>
+		<div class='paper-desc'>Distributing a monolithic distillation factory across the processor to minimize the space-time volume overhead of distillation.</div>
 		<div class='software-gap'> </div>
-        <a href="http://accelconf.web.cern.ch/AccelConf/SRF2013/papers/tup058.pdf"style="color:black" target="_blank"><button class='btn btn-block soft-btn'>
-						Recent Findings on Nitrogen<br>Treated Niobium</button></a> 
+
+        <a href="https://arxiv.org/abs/2202.01407" style="color:black" target="_blank"><button class='btn btn-block soft-btn'>
+						<b>DigiQ:</b><br>A Scalable Digital Controller for<br>Quantum Computers Using SFQ Logic</button></a>
+		<div class='paper-desc'>System-level design of a single flux quantum classical controller, co-designed with gate decompositions to scale past 42,000 qubits.</div>
       </div>
+
       <div class='col-md-4 text-center'>
-        <h4> Current Research </h4>
-        <a href="https://github.com/ah744/QML/raw/master/vj.pdf" style="color:black" target="_blank"><button class='btn btn-block soft-btn'>
-						Viola Jones Algorithm Implementation<br>Face Detection ML Exploration</button></a>
+        <h4> Algorithms and Applications </h4>
+        <a href="https://arxiv.org/abs/1811.02125" style="color:black" target="_blank"><button class='btn btn-block soft-btn'>
+						<b>Impact of Qubit Connectivity</b><br>on Quantum Algorithm Performance</button></a>
+		<div class='paper-desc'>Maps QFT, Grover diffusion, and Jordan-Wigner parity workloads onto grid, ladder, and linear qubit arrays to price limited connectivity.</div>
 		<div class='software-gap'> </div>
 
-        <a href="https://github.com/ah744/QML/raw/master/nnet_writeup.pdf" style="color:black" target="_blank"><button class='btn btn-block soft-btn'>
-						Feed-Forward Neural Network <br>MNIST Digit Classification</button></a>
+        <a href="https://arxiv.org/abs/2005.04351" style="color:black" target="_blank"><button class='btn btn-block soft-btn'>
+						<b>Efficient Quantum Circuits for</b><br>Accurate State Preparation of<br>Smooth, Differentiable Functions</button></a>
+		<div class='paper-desc'>Matrix product state methods that prepare Gaussian, lognormal, and related distributions in linear-depth circuits at high fidelity.</div>
 		<div class='software-gap'> </div>
 
-        <a href="https://github.com/ah744/CryoControl"style="color:black" target="_blank"><button class='btn btn-block soft-btn'>
-						Cryogenic Classical Control System Design<br>for Quantum Computation</button></a>
+        <a href="https://arxiv.org/abs/2406.18744" style="color:black" target="_blank"><button class='btn btn-block soft-btn'>
+						<b>Quantum Resources Required for</b><br>Binding Affinity Calculations<br>of Amyloid Beta</button></a>
+		<div class='paper-desc'>An end-to-end workflow and logical and physical resource estimates for binding affinity calculations on a disordered protein.</div>
         </div>
   </div>
 </div>
@@ -92,7 +109,7 @@
 <a name='contact'></a>
 <div class='about-box'>
 <h1 class='text-center'> Contact </h1>
-<p> If you have questions about my research, software, papers, or thoughts about quantum computing or physics, feel free to contact me through my social media. My<a href="images/resume.pdf"> resume</a> is available as well.</p>
+<p> If you have questions about my research, software, papers, or thoughts about quantum computing or physics, feel free to contact me through my social media.</p>
 
   <svg width="100%" height="100">
 	    <rect x="20" y="2" rx="20" ry="2" width="100%" height="2" style="fill:white" />
@@ -102,14 +119,11 @@
     <div class='col-xs-5'> </div>
 	<div class='col-xs-2'> 
 	  <div class='row'>
-		<div class='col-xs-4'>
-      		<a href="https://www.facebook.com/adam.holmes.925" target="_blank"><button class='btn'><i class="fa fa-facebook"></i></button></a>
-		</div>
-		<div class='col-xs-4'>
+		<div class='col-xs-6'>
       	<a href="https://www.linkedin.com/in/adam-holmes-02605859" target="_blank"><button class='btn'><i class="fa fa-linkedin"></i></button></a>
 		</div>
-		<div class='col-xs-4'>
-      	<a href="https://github.com/ah744" target="_blank"><button class='btn'><i class="fa fa-github"></i></button></a>
+		<div class='col-xs-6'>
+      	<a href="https://github.com/adholmes7" target="_blank"><button class='btn'><i class="fa fa-github"></i></button></a>
 		</div>
 	  </div>
 	</div>
@@ -123,4 +137,3 @@
   <h6 class='text-center'> Written and coded by Adam Holmes </h6>
   </div>
 </div>
-

@@ -87,3 +87,11 @@
 	  padding-bottom:10px;
 	  background-color:#ececec;
 	}
+	.paper-desc{
+	  font-size: 13px;
+	  color: #555555;
+	  padding-top: 6px;
+	  padding-left: 4px;
+	  padding-right: 4px;
+	  text-align: center;
+	}
