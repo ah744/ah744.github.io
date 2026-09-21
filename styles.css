@@ -87,11 +87,46 @@
 	  padding-bottom:10px;
 	  background-color:#ececec;
 	}
+	.paper-group{
+	  padding-top: 10px;
+	  padding-bottom: 20px;
+	  padding-left: 10px;
+	  padding-right: 10px;
+	}
+	.paper-group h4{
+	  padding-bottom: 12px;
+	}
+	#portfolio-box a{
+	  color: black;
+	  text-decoration: none;
+	}
+	.paper-card{
+	  background-color: white;
+	  border: 3px solid #ffffff;
+	  border-radius: 8px;
+	  padding: 14px 16px 14px 16px;
+	  margin-bottom: 16px;
+	  text-align: left;
+	  transition: border-color 0.2s ease;
+	}
+	.paper-card:hover{
+	  border-color: #d5d5d5;
+	}
+	.paper-title{
+	  font-size: 15px;
+	  font-weight: bold;
+	  line-height: 1.35;
+	}
+	.paper-venue{
+	  font-size: 12px;
+	  color: #8c8c8c;
+	  letter-spacing: 0.5px;
+	  text-transform: uppercase;
+	  padding-top: 4px;
+	}
 	.paper-desc{
 	  font-size: 13px;
 	  color: #555555;
-	  padding-top: 6px;
-	  padding-left: 4px;
-	  padding-right: 4px;
-	  text-align: center;
+	  padding-top: 8px;
+	  line-height: 1.45;
 	}

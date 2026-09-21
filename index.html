@@ -48,58 +48,105 @@
 
     <h1 class='text-center'> Projects </h1>
     <div class='row'>
-      <div class='col-md-4 text-center'>
-        <h4> Quantum Error Correction </h4>
-		<a href="https://arxiv.org/abs/2609.13388" style="color:black" target="_blank"><button class='btn btn-block soft-btn'>
-						<b>CUDA-Q Logical:</b><br>Retargetable Compilation for<br>Fault-Tolerant Quantum Computing</button></a>
-		<div class='paper-desc'>Compiler infrastructure that maps logical programs onto heterogeneous QEC codes, fault-tolerant execution models, and real-time classical control.</div>
-		<div class='software-gap'> </div>
+      <div class='col-md-6'>
+        <div class='paper-group'>
+        <h4 class='text-center'> Quantum Information and Quantum Error Correction </h4>
 
-		<a href="https://arxiv.org/abs/2004.04794" style="color:black" target="_blank"><button class='btn btn-block soft-btn'>
-						<b>NISQ+:</b><br>Boosting Quantum Computing Power by<br>Approximating Quantum Error Correction</button></a>
-		<div class='paper-desc'>Adapts error correction into an approximate, hardware-accelerated form to extend the compute volume reachable by near-term machines.</div>
-		<div class='software-gap'> </div>
+        <a href="https://arxiv.org/abs/2606.13521" target="_blank"><div class='paper-card'>
+          <div class='paper-title'>Quantum Logic Codes: Complete Transversal Logical Clifford Instruction Sets for High-Rate Stabilizer Quantum Error Correcting Codes</div>
+          <div class='paper-venue'>arXiv &middot; 2026</div>
+          <div class='paper-desc'>Universal lower bounds on the depth needed to generate a full logical Clifford algebra, and a high-rate code family with a constant-depth transversal Clifford instruction set.</div>
+        </div></a>
 
-		<a href="https://arxiv.org/abs/1708.09283" style="color:black" target="_blank"><button class='btn btn-block soft-btn'>
-						<b>Optimized Surface Code Communication</b><br>in Superconducting Quantum Computers</button></a>
-		<div class='paper-desc'>Compilation, scheduling, and network simulation of planar and double-defect surface codes, showing when simpler codes win under congestion.</div>
-      </div>
+        <a href="https://arxiv.org/abs/2005.04351" target="_blank"><div class='paper-card'>
+          <div class='paper-title'>Efficient Quantum Circuits for Accurate State Preparation of Smooth, Differentiable Functions</div>
+          <div class='paper-venue'>arXiv &middot; 2020</div>
+          <div class='paper-desc'>Matrix product state methods that encode Gaussian, lognormal, and related distributions into linear-depth circuits at high fidelity.</div>
+        </div></a>
 
-      <div class='col-md-4 text-center'>
-        <h4> Fault-Tolerant Architecture </h4>
-        <a href="https://arxiv.org/abs/1809.01302" style="color:black" target="_blank"><button class='btn btn-block soft-btn'>
-						<b>Magic-State Functional Units:</b><br>Mapping and Scheduling Multi-Level<br>Distillation Circuits</button></a>
-		<div class='paper-desc'>First detailed hardware designs of space-time optimized magic-state factories for surface code error-corrected machines.</div>
-		<div class='software-gap'> </div>
-
-        <a href="https://arxiv.org/abs/1904.11528" style="color:black" target="_blank"><button class='btn btn-block soft-btn'>
-						<b>Resource Optimized Quantum Architectures</b><br>for Surface Code Implementations<br>of Magic-State Distillation</button></a>
-		<div class='paper-desc'>Distributing a monolithic distillation factory across the processor to minimize the space-time volume overhead of distillation.</div>
-		<div class='software-gap'> </div>
-
-        <a href="https://arxiv.org/abs/2202.01407" style="color:black" target="_blank"><button class='btn btn-block soft-btn'>
-						<b>DigiQ:</b><br>A Scalable Digital Controller for<br>Quantum Computers Using SFQ Logic</button></a>
-		<div class='paper-desc'>System-level design of a single flux quantum classical controller, co-designed with gate decompositions to scale past 42,000 qubits.</div>
-      </div>
-
-      <div class='col-md-4 text-center'>
-        <h4> Algorithms and Applications </h4>
-        <a href="https://arxiv.org/abs/1811.02125" style="color:black" target="_blank"><button class='btn btn-block soft-btn'>
-						<b>Impact of Qubit Connectivity</b><br>on Quantum Algorithm Performance</button></a>
-		<div class='paper-desc'>Maps QFT, Grover diffusion, and Jordan-Wigner parity workloads onto grid, ladder, and linear qubit arrays to price limited connectivity.</div>
-		<div class='software-gap'> </div>
-
-        <a href="https://arxiv.org/abs/2005.04351" style="color:black" target="_blank"><button class='btn btn-block soft-btn'>
-						<b>Efficient Quantum Circuits for</b><br>Accurate State Preparation of<br>Smooth, Differentiable Functions</button></a>
-		<div class='paper-desc'>Matrix product state methods that prepare Gaussian, lognormal, and related distributions in linear-depth circuits at high fidelity.</div>
-		<div class='software-gap'> </div>
-
-        <a href="https://arxiv.org/abs/2406.18744" style="color:black" target="_blank"><button class='btn btn-block soft-btn'>
-						<b>Quantum Resources Required for</b><br>Binding Affinity Calculations<br>of Amyloid Beta</button></a>
-		<div class='paper-desc'>An end-to-end workflow and logical and physical resource estimates for binding affinity calculations on a disordered protein.</div>
+        <a href="https://arxiv.org/abs/1809.01302" target="_blank"><div class='paper-card'>
+          <div class='paper-title'>Magic-State Functional Units: Mapping and Scheduling Multi-Level Distillation Circuits for Fault-Tolerant Quantum Architectures</div>
+          <div class='paper-venue'>MICRO &middot; 2018</div>
+          <div class='paper-desc'>First detailed hardware designs of space-time optimized magic-state factories for surface code error-corrected machines.</div>
+        </div></a>
         </div>
+      </div>
+
+      <div class='col-md-6'>
+        <div class='paper-group'>
+        <h4 class='text-center'> Quantum Algorithms </h4>
+
+        <a href="https://arxiv.org/abs/2406.18759" target="_blank"><div class='paper-card'>
+          <div class='paper-title'>Quantum Computing for Corrosion-Resistant Materials and Anti-Corrosive Coatings Design</div>
+          <div class='paper-venue'>npj Quantum Information &middot; 2025</div>
+          <div class='paper-desc'>An end-to-end workflow and resource analysis for simulating corrosion inhibition in magnesium and niobium alloys.</div>
+        </div></a>
+
+        <a href="https://arxiv.org/abs/2408.13244" target="_blank"><div class='paper-card'>
+          <div class='paper-title'>Fullerene-Encapsulated Cyclic Ozone for the Next Generation of Nano-Sized Propellants via Quantum Computation</div>
+          <div class='paper-venue'>arXiv &middot; 2024</div>
+          <div class='paper-desc'>Logical and physical overhead estimates for phase estimation of cyclic ozone confined in fullerene cages, a candidate high-impulse propellant.</div>
+        </div></a>
+
+        <a href="https://arxiv.org/abs/2406.18744" target="_blank"><div class='paper-card'>
+          <div class='paper-title'>Quantum Resources Required for Binding Affinity Calculations of Amyloid Beta</div>
+          <div class='paper-venue'>arXiv &middot; 2024</div>
+          <div class='paper-desc'>A computational workflow and quantum resource estimates for metal binding affinities in an intrinsically disordered protein.</div>
+        </div></a>
+        </div>
+      </div>
+    </div>
+
+    <div class='row'>
+      <div class='col-md-6'>
+        <div class='paper-group'>
+        <h4 class='text-center'> Architecture </h4>
+
+        <a href="https://arxiv.org/abs/2604.16216" target="_blank"><div class='paper-card'>
+          <div class='paper-title'>A Digitally Controlled Silicon Quantum Processing Unit</div>
+          <div class='paper-venue'>Nature &middot; 2026</div>
+          <div class='paper-desc'>A cryogenic CMOS controller, superconducting ribbon cable, and 54 quantum dot exchange-only device advancing the state of the art by an order of magnitude.</div>
+        </div></a>
+
+        <a href="https://arxiv.org/abs/2004.04794" target="_blank"><div class='paper-card'>
+          <div class='paper-title'>NISQ+: Boosting Quantum Computing Power by Approximating Quantum Error Correction</div>
+          <div class='paper-venue'>ISCA &middot; 2020</div>
+          <div class='paper-desc'>Approximate error correction, accelerated in classical hardware, to extend the compute volume reachable by near-term machines.</div>
+        </div></a>
+
+        <a href="https://arxiv.org/abs/1811.02125" target="_blank"><div class='paper-card'>
+          <div class='paper-title'>Impact of Qubit Connectivity on Quantum Algorithm Performance</div>
+          <div class='paper-venue'>Quantum Science and Technology &middot; 2020</div>
+          <div class='paper-desc'>Mapping QFT, Grover diffusion, and Jordan-Wigner parity workloads onto grid, ladder, and linear arrays to price limited connectivity.</div>
+        </div></a>
+        </div>
+      </div>
+
+      <div class='col-md-6'>
+        <div class='paper-group'>
+        <h4 class='text-center'> Compilers, Software, and Tools </h4>
+
+        <a href="https://arxiv.org/abs/2609.13388" target="_blank"><div class='paper-card'>
+          <div class='paper-title'>CUDA-Q Logical: Retargetable Compilation for Fault-Tolerant Quantum Computing</div>
+          <div class='paper-venue'>arXiv &middot; 2026</div>
+          <div class='paper-desc'>Compiler infrastructure mapping logical programs onto heterogeneous QEC codes, fault-tolerant execution models, and real-time classical control.</div>
+        </div></a>
+
+        <a href="https://arxiv.org/abs/2202.11142" target="_blank"><div class='paper-card'>
+          <div class='paper-title'>An LLVM-Based C++ Compiler Toolchain for Variational Hybrid Quantum-Classical Algorithms and Quantum Accelerators</div>
+          <div class='paper-venue'>arXiv &middot; 2022</div>
+          <div class='paper-desc'>C++ language extensions, a quantum executable format, and a compiler path that builds a variational program once for all of its iterations.</div>
+        </div></a>
+
+        <a href="https://dl.acm.org/doi/10.1145/2694344.2694357" target="_blank"><div class='paper-card'>
+          <div class='paper-title'>Compiler Management of Communication and Parallelism for Quantum Computation</div>
+          <div class='paper-venue'>ASPLOS &middot; 2015</div>
+          <div class='paper-desc'>A Multi-SIMD architecture and the schedulers that map program descriptions onto its parallel regions to shorten execution time.</div>
+        </div></a>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
   <svg width="100%" height="10">
 	    <rect x="20" y="2" rx="20" ry="2" width="100%" height="2" style="fill:#ececec" />
   </svg>
@@ -119,11 +166,14 @@
     <div class='col-xs-5'> </div>
 	<div class='col-xs-2'> 
 	  <div class='row'>
-		<div class='col-xs-6'>
-      	<a href="https://www.linkedin.com/in/adamdholmes" target="_blank"><button class='btn'><i class="fa fa-linkedin"></i></button></a>
+		<div class='col-xs-4'>
+	      	<a href="https://www.linkedin.com/in/adamdholmes" target="_blank" title="LinkedIn"><button class='btn'><i class="fa fa-linkedin"></i></button></a>
 		</div>
-		<div class='col-xs-6'>
-      	<a href="https://github.com/adholmes7" target="_blank"><button class='btn'><i class="fa fa-github"></i></button></a>
+		<div class='col-xs-4'>
+	      	<a href="https://scholar.google.com/citations?user=kmSVgx0AAAAJ" target="_blank" title="Google Scholar"><button class='btn'><i class="fa fa-graduation-cap"></i></button></a>
+		</div>
+		<div class='col-xs-4'>
+	      	<a href="https://github.com/adholmes7" target="_blank" title="GitHub"><button class='btn'><i class="fa fa-github"></i></button></a>
 		</div>
 	  </div>
 	</div>
