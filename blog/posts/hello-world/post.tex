@@ -1,0 +1,42 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newcommand{\ket}[1]{\left|#1\right\rangle}
+
+\title{Hello, World}
+\author{Adam Holmes}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+A first post, written in \emph{folio} and typeset straight onto the page.
+\end{abstract}
+
+This blog is written the way I like to write papers: plain \LaTeX{} on disk, rendered in place
+while I type. Inline math like $\ket{\psi} = \alpha\ket{0} + \beta\ket{1}$ sits in the prose,
+and displayed equations are numbered for free:
+\begin{equation}
+  |\alpha|^2 + |\beta|^2 = 1 .
+  \label{eq:norm}
+\end{equation}
+Equation~\eqref{eq:norm} is just normalisation.\footnote{Footnotes become endnotes on the web.}
+
+\section{What to expect}
+Short notes on quantum error correction, compilers and architecture --- things too small
+for a paper and too long for a tweet~\cite{shor1995}.
+
+\begin{theorem}[No-cloning]
+\label{thm:nc}
+There is no unitary $U$ with $U\ket{\psi}\ket{0} = \ket{\psi}\ket{\psi}$ for every $\ket{\psi}$.
+\end{theorem}
+\begin{proof}
+Inner products are preserved by $U$, so $\langle\psi|\phi\rangle = \langle\psi|\phi\rangle^2$,
+which forces $\langle\psi|\phi\rangle \in \{0, 1\}$.
+\end{proof}
+
+\bibliographystyle{unsrt}
+\bibliography{refs}
+\end{document}

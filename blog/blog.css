@@ -1,0 +1,108 @@
+/* The blog page — folio's page, published. Prose is set in Computer Modern (KaTeX_Main). */
+:root {
+  --paper: #fdfdfb; --ink: #1d1d1f; --faint: #8e8e93; --rule: #e6e6e3; --accent: #1f6feb; --src: #f4f4f1;
+  --serif: KaTeX_Main, "Latin Modern Roman", "CMU Serif", "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  --mono: "iA Writer Mono S", "SF Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --paper: #1b1b1d; --ink: #e4e4e1; --faint: #77777c; --rule: #333; --src: #232326; --accent: #6aa5ff; }
+}
+html { background: var(--paper); -webkit-text-size-adjust: 100%; }
+body { margin: 0; color: var(--ink); background: var(--paper); font: 19px/1.5 var(--serif); font-kerning: normal; }
+::selection { background: color-mix(in srgb, var(--accent) 25%, transparent); }
+a { color: inherit; }
+
+/* the only chrome: a quiet line at the top */
+nav.top { max-width: 36em; margin: 0 auto; padding: 28px 1.25em 0; display: flex; justify-content: space-between;
+  font: 13px var(--sans); letter-spacing: .04em; }
+nav.top a { color: var(--faint); text-decoration: none; transition: color .2s; }
+nav.top a:hover { color: var(--ink); }
+
+article { max-width: 36em; margin: 0 auto; padding: 12vh 1.25em 20vh; }
+article > header { text-align: center; margin-bottom: 2.6em; hyphens: none; }
+article > header h1 { font-size: 1.65em; font-weight: normal; line-height: 1.25; margin: 0 0 .6em; }
+.byline { color: var(--faint); font-size: .9em; }
+
+/* paragraphs like LaTeX: no gap, first-line indent after a paragraph */
+p { margin: 0; hyphens: auto; -webkit-hyphens: auto; }
+p + p { text-indent: 1.5em; }
+@media (min-width: 640px) { p, li, dd, figcaption { text-align: justify; } }
+
+h2, h3, h4 { font-weight: bold; line-height: 1.3; hyphens: none; margin: 1.6em 0 .4em; }
+h2 { font-size: 1.25em; } h3 { font-size: 1.08em; margin-top: 1.2em; } h4 { font-size: 1em; margin-top: 1em; }
+.secnum { padding-right: .7em; }
+.runin { padding-right: .3em; }
+
+.abstract { font-size: .9em; margin: 0 2em 2em; }
+.abstract::before { content: "Abstract"; display: block; text-align: center; font-weight: bold; margin-bottom: .3em; }
+
+/* math */
+.katex { font-size: 1em; }
+.display { margin: .6em 0; overflow-x: auto; overflow-y: hidden; }
+.display .katex-display { margin: 0; }
+.display .katex { font-size: 1.05em; }
+
+/* theorems */
+.thm, .proof { margin: .8em 0; }
+.thm p { font-style: italic; } .thm-head, .thm.upright p { font-style: normal; }
+.thm p + p, .proof p + p { text-indent: 1.5em; }
+.qed { float: right; }
+
+/* lists */
+ul, ol, dl { margin: .5em 0; padding-left: 1.6em; }
+li, dd { margin: .15em 0; }
+dt { font-weight: bold; } dd { margin-left: 1.6em; }
+li > p + p { text-indent: 0; margin-top: .4em; }
+
+/* inline */
+em { font-style: italic; } .sc { font-variant: small-caps; } .sf { font-family: var(--sans); }
+code { font-family: var(--mono); font-size: .8em; }
+pre { font: 14px/1.55 var(--mono); background: var(--src); padding: .8em 1em; border-radius: 4px; overflow-x: auto; }
+pre code { font-size: inherit; }
+blockquote { margin: .8em 2em; }
+.center { text-align: center; } .center p { text-indent: 0; text-align: center; }
+article p a, li a, figcaption a { text-decoration-color: var(--rule); text-underline-offset: .15em; transition: text-decoration-color .2s; }
+article p a:hover, li a:hover { text-decoration-color: currentColor; }
+a.cite, a.ref, sup.fn a { text-decoration: none; }
+a.cite:hover, a.ref:hover, sup.fn a:hover { color: var(--accent); }
+sup.fn { font-size: .7em; line-height: 0; }
+.la { font-size: .75em; vertical-align: .25em; margin: 0 -.36em 0 -.15em; }
+.tex-e { vertical-align: -.22em; margin: 0 -.12em 0 -.1667em; }
+.bad { font-family: var(--mono); font-size: .8em; color: #c33; }
+
+/* floats */
+figure { margin: 1.4em 0; text-align: center; }
+figure img { max-width: 100%; height: auto; }
+figcaption { font-size: .9em; margin: .5em 1.5em 0; text-align: left; }
+figure table { margin: .4em auto; border-collapse: collapse; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); font-size: .92em; }
+figure td { padding: .15em .7em; }
+@media (prefers-color-scheme: dark) { figure img { background: #fdfdfb; border-radius: 2px; } }
+
+/* notes & references */
+.notes, .refs { margin-top: 2.5em; font-size: .9em; }
+.notes h2, .refs h2 { font-size: 1.1em; }
+.notes ol { padding-left: 1.4em; }
+.refs ol { list-style: none; padding: 0; }
+.refs li { padding-left: 2.6em; text-indent: -2.6em; margin-bottom: .35em; text-align: left; }
+.bibnum { display: inline-block; width: 2.6em; text-indent: 0; }
+.back { text-decoration: none; color: var(--faint); }
+:target { scroll-margin-top: 30vh; }
+li:target, .display:target { background: color-mix(in srgb, var(--accent) 8%, transparent); border-radius: 3px; }
+
+/* the index */
+.index > header { text-align: left; margin-bottom: 2em; }
+.posts { list-style: none; padding: 0; margin: 0; }
+.posts li { margin: 0 0 2em; }
+.posts li > a { display: flex; justify-content: space-between; align-items: baseline; gap: 1em; text-decoration: none; }
+.posts .t { font-size: 1.15em; line-height: 1.3; }
+.posts li > a:hover .t { color: var(--accent); }
+.posts time { color: var(--faint); font: 13px var(--sans); white-space: nowrap; letter-spacing: .03em; }
+.posts p { color: color-mix(in srgb, var(--ink) 72%, var(--paper)); font-size: .9em; margin-top: .25em; text-align: left; }
+.posts .empty { color: var(--faint); }
+@media (max-width: 520px) {
+  body { font-size: 17px; }
+  article { padding-top: 8vh; }
+  .posts li > a { flex-direction: column; gap: .1em; }
+  .abstract, blockquote { margin-left: 0; margin-right: 0; }
+}
