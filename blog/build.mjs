@@ -134,7 +134,10 @@ function renderPost(src, dir, outDir) {
   /** Copy a figure next to the page (PDF figures are rasterised with sips, as folio does). */
   function image(p) {
     p = p.trim();
-    const hit = ['', '.svg', '.png', '.jpg', '.jpeg', '.gif', '.webp', '.pdf'].map(e => path.join(dir, p + e)).find(f => fs.existsSync(f) && fs.statSync(f).isFile());
+    // match names case-insensitively but publish the real one: macOS forgives `fig1.PNG` for fig1.png, the web server won't
+    const sub = path.join(dir, path.dirname(p)), real = new Map(fs.existsSync(sub) ? fs.readdirSync(sub).map(f => [f.toLowerCase(), f]) : []);
+    const want = ['', '.svg', '.png', '.jpg', '.jpeg', '.gif', '.webp', '.pdf'].map(e => (path.basename(p) + e).toLowerCase()).find(f => real.has(f));
+    const hit = want && path.join(sub, real.get(want));
     if (!hit) { console.warn(`  missing figure: ${p}`); return `<span class="bad">${esc(p)}</span>`; }
     let name = path.basename(hit);
     if (hit.endsWith('.pdf')) {
@@ -296,6 +299,7 @@ function build() {
     const date = publishDate(analyze(src).meta.date ?? '');
     const outDir = path.join(BLOG, slug);
     if (!date && !args.has('--drafts')) { console.log(`draft  ${slug}`); fs.rmSync(outDir, { recursive: true, force: true }); continue; }
+    fs.rmSync(outDir, { recursive: true, force: true }); // start clean: no stale or wrongly-cased figures
     fs.mkdirSync(outDir, { recursive: true });
     const p = renderPost(src, path.dirname(file), outDir);
     const when = date ? fmtDate(date) : 'Draft';
