@@ -11,15 +11,14 @@
 \maketitle
 
 \begin{abstract}
-Error floors are spooky, and show up in quantum error corrected system design and, now apparently, in latent world models for robotics. I share a bit more about these floors here.
+Error floors are spooky, and show up in quantum error corrected system design and, now apparently, in RoboJEPA latent world models for robotics. I share a bit more about these floors here.
 \end{abstract}
 
 
 
 
 \section{}
-Error floors are spooky. When I'm thinking about quantum error corrected systems in particular, lots of design work goes into building nice and scalable families of codes that, \emph{in principle} should be able to continue getting better and better at error suppression as needed. I spend a lot of time designing codes, circuits, and protocols with good pseudothresholds $p^*$ (the point where the performance of the code crosses the performance of the raw unprotected machine), with good error suppression scaling coefficients, and with good architectural properties. I look at lots of things including analytically dissecting the ways that errors propagate throughout the circuit, how the decoder handles the highest-likelihood failure mechanisms, and numerically measure scaling constants like the logical error rate $p_L$ and the ratio of this error rate between subsequent code distances. In general, we typically find that quantum error correcting codes of code distance $d$ suppress logical errors over and above some physical error rate $p$ at a rate exponential in how far the system is below pseudothreshold: $$ p_L = C (p/p^*)^{\alpha \frac{d+1}{2}} $$
-for some constants $C$ and $\alpha$, both of which depend on the implementation. This is an important error suppression scaling law that has anchored effectively all of fault tolerant quantum system design.
+Error floors are spooky. When I'm thinking about quantum error corrected systems in particular, lots of design work goes into building nice and scalable families of codes that, \emph{in principle} should be able to continue getting better and better at error suppression as needed. I spend a lot of time designing codes, circuits, and protocols with good pseudothresholds $p^*$ (the point where the performance of the code crosses the performance of the raw unprotected machine), with good error suppression scaling coefficients, and with good architectural properties. I look at lots of things including analytically dissecting the ways that errors propagate throughout the circuit, how the decoder handles the highest-likelihood failure mechanisms, and numerically measure scaling constants like the logical error rate $p_L$ and the ratio of this error rate between subsequent code distances. In general, we typically find that quantum error correcting codes of code distance $d$ suppress logical errors over and above some physical error rate $p$ at a rate exponential in how far the system is below pseudothreshold: $$ p_L = C (p/p^*)^{\alpha \frac{d+1}{2}} $$for some constants $C$ and $\alpha$, both of which depend on the implementation. This is an important error suppression scaling law that has anchored effectively all of fault tolerant quantum system design.
 
 
 
@@ -48,7 +47,7 @@ For reference, let's look at the scaling laws in language models first. Kaplan e
     This behavior apparently changes in robotics world models, at least for some architectures. The RoboJEPA paper \cite{zholus2026robojepa} was able to measure these curves for a specific set of architectures that are promising latent-state world models for enabling physical world interaction. The architecture itself is a hybrid, starting from a learned latent space that the V-JEPA 2.1 encoder produces, and within that space they train a Transformer-based predictor to operate and act. They propose and show good agreement with what they call a second-order power law: $$ L(C) = E + A\cdot C^{\alpha - \gamma \ln C}$$where $A, \alpha$, and $\gamma$ are fitting variables, $C$ is compute, and $E$ here is some form of irreducible error. An error floor. 
 
 \section{}
-This second order scaling law itself is interesing. It's easier to look at it in a simpler form:
+This second order scaling law itself is interesting. It's easier to look at it in a simpler form:
 
 \begin{align*} L - E &= A\cdot C^{\alpha - \gamma \ln C} \\ \ln (L - E) &= \ln A + (\alpha - \gamma \ln C)\ln C \\ &= \ln A + \alpha \ln C-  \gamma (\ln C)^2. \end{align*}
 In this form we can more clearly pick out the second-order behavior, which is the squared gamma-controlled factor. We can plot this, and plug in the fits that the paper found, to more clearly see what's going on. A plain power law is a straight line in log-log space, something of the form $\ln A + \alpha \ln C$ would recover it in this context (and the paper fit one of these as well). The quadratic term creates a parabola. Let's focus on the DROID dataset and loss.
@@ -72,13 +71,16 @@ A simple thing to start with is wiggling stuff. I took the frames from the DROID
 For most natural nuisances/ablations/perturbations/etc., the maximum LN space token L1 distance is far below the RoboJEPA measured $E$ values (at least for V-JEPA 2.1). That's compelling, seems that the encoder isn't necessarily setting this floor with per-token ambiguity alone. For an idling robot, the next frame 1/15s later is 0.052-away in L1 distance. It's 0.079-away across all actions. Sensor noise with somewhat reasonable $\sigma$ moves these features by a bit more, as does shifting by a full pixel. If you shift the full image by 4 pixels, then you can exceed the measured $E$ value. So overall, this seems smaller than $E$ and unlikely to explain it alone.
 
 
-The next thing I tried is to separate the natural ambiguity of the encoder from the natural uncertainty in the future given an action, or dynamics uncertainty. That should be measurable too, only using the latent representation space. The idea is to measure dynamics uncertainty, measured as the spread of next-latent states $z_{t+1}$ given the same state and action. This is a trajectory-dependent measure, so we can study it by running a controlled experiment on the existing DROID episodes. I took every (context, action, next-feature) triplet in the held-out DROID dataset from the REAL ``setup room", amounting to roughly 7k total steps. For each of these tuples I find its nearest neighbours in $(z_t, a_t)$ from a different episode. To modulate-out temporal adjacency I also use neighbors from the same episode at least several seconds away. For each pair record two numbers: how far apart the presents are, $d_{\text{now}} = \text{L1}(z_t, z_t')$ plus a scaled action mismatch, and how far apart the futures are, $d_{\text{next}} = \text{L1}(z_{t+1}, z_{t+1}').$ What we get for this the expected L1 distance between two independently drawn trajectories from the same conditional, which (because an L1-optimal predictor is deterministic) is a fixed multiple of the irreducible error $E$. So the intercept of a regression here should represent this expected distance (it will also contain nuisance, so we can subtract that out). The net effect of this study then is an estimator of the true dynamical uncertainty (I think people call this aleatoric...). This plot is almost done.
+The next thing I tried is to separate the natural ambiguity of the encoder from the natural uncertainty in the future given an action, or dynamics uncertainty. That should be measurable too, only using the latent representation space. The idea is to measure dynamics uncertainty, measured as the spread of next-latent states $z_{t+1}$ given the same state and action. This is a trajectory-dependent measure, so we can study it by running a controlled experiment on the existing DROID episodes. I took every (context, action, next-feature) triplet in the held-out DROID dataset from the REAL ``setup room", amounting to roughly 7k total steps. For each of these tuples I find its nearest neighbours in $(z_t, a_t)$ from a different episode. To modulate-out temporal adjacency I also use neighbors from the same episode at least several seconds away. For each pair record two numbers: how far apart the presents are, $d_{\text{now}} = \text{L1}(z_t, z_t')$ plus a scaled action mismatch, and how far apart the futures are, $d_{\text{next}} = \text{L1}(z_{t+1}, z_{t+1}').$ What we get for this the expected L1 distance between two independently drawn trajectories from the same conditional, which (because an L1-optimal predictor is deterministic) is a fixed multiple of the irreducible error $E$. So the intercept of a regression here should represent this expected distance (it will also contain nuisance, so we can subtract that out). The net effect of this study then is an estimator of the true dynamical uncertainty (I think people call this aleatoric...). 
 
+\begin{figure}
+  \includegraphics{fig5.png}
+\end{figure}
 
-
-
-
-
+The data isn't granular enough to produce a useful answer here. These figures show what I mean: each dot is a bin of matched pairs. Horizontal position is how far apart the two ``present" tuples are. Vertical is how far apart their ``futures" were 0.8 seconds later.
+What we see is nearly exact linearity, where the futures show up as nearly as close as the presents.
+The leftmost point shows a signal floor from this study. On the side camera the closest matches start at 0.13, while on the wrist it shows up at 0.26. The intercepts printed in the legends come from that extrapolation, which we don't have sufficient data to really defend yet.
+The reference lines are drawn on top to show how close these are to the other measured error floors. The grey nuisance floor at 0.052 is the lower bound, and the red 2B step-1 error at 0.123 is the model. The data never gets below 0.13, so it never enters the band between them. While this study seems well-designed, the data limits it from really showing us clear answers. A next step to help resolve this is to directly generate new simulation data that ablates the futures by fixing an identical state, apply the identical action, and sample several futures, which I might try.
 \section{}
 
 
@@ -86,14 +88,6 @@ The next thing I tried is to separate the natural ambiguity of the encoder from 
 While none of this is conclusive, it seems likely to me that there's lots of room still afforded by the V-JEPA 2.1 latent space for predictors to learn. It would be very interesting to see larger models continue to train to properly fill out the compute/model size curve, and to see if this system keeps following the flattening second-order curve or whether some threshold already exists in the curve that pushes the loss deeper, faster. The V-JEPA latent representation space native ambiguity study seems to also say there's enough learnable signal that this could be possible. 
 
 
-Amusingly, a lot of this type of analysis is quite similar to the work we do in quantum computing systems research. Turns out thinking a lot about modeling the behavior of unknown systems, dissecting error floors into interpretable pieces, and deciding what and how to measure to buy down uncertainty gives you a nice transferable perspective. 
-
-
-
-
-
-
-
-
+A lot of this type of analysis is quite similar to the work we do in quantum computing systems research. Turns out thinking a lot about modeling the behavior of unknown systems, dissecting error floors into interpretable pieces, and deciding what and how to measure to buy down uncertainty gives you a nice transferable perspective. 
 \bibliography{refs}
 \end{document}
