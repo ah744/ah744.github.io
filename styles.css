@@ -130,3 +130,37 @@
 	  padding-top: 8px;
 	  line-height: 1.45;
 	}
+	.social{
+	  display: flex;
+	  justify-content: center;
+	  gap: 16px;
+	}
+
+	/* phones: the desktop gaps (300-400px) and 80px gutters swallow a small screen */
+	@media (max-width: 767px){
+	  .name{
+	    padding-top: 38vh;
+	    margin-bottom: 30vh;
+	  }
+	  .about-box{
+	    font-size: 17px;
+	    margin-top: 60px;
+	    margin-bottom: 60px;
+	  }
+	  #portfolio-box{
+	    padding: 12px 6px;
+	    margin-top: 60px;
+	    margin-bottom: 60px;
+	  }
+	  .paper-group{
+	    padding-left: 0;
+	    padding-right: 0;
+	  }
+	  h1{
+	    font-size: 30px;
+	  }
+	  #bar{
+	    font-size: 15px;
+	    line-height: 2;
+	  }
+	}
