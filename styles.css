@@ -178,6 +178,10 @@ a:focus-visible{
   }
   .paper-group h4{ margin-bottom: 0; }
   .paper-group > a + a{ margin-top: 0; }
+  /* a group with a fourth paper: one more shared track (heading + 4 cards) */
+  #portfolio-box .row:has(.paper-group > a:nth-of-type(4)){ grid-template-rows: repeat(5, auto); }
+  #portfolio-box .row:has(.paper-group > a:nth-of-type(4)) > div,
+  #portfolio-box .row:has(.paper-group > a:nth-of-type(4)) .paper-group{ grid-row: 1 / span 5; }
 }
 
 /* contact */
