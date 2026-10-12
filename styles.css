@@ -1,166 +1,236 @@
-  	body{
-  	  background-color: white;
-  	  font-family: Raleway, sans-serif;
-  	}
-  	h4{
-  	  font-size: 22px;
-  	 }
-	.name {
-	  color: black;
-	  padding-top: 300px;
-	  padding-bottom:20px;
-	  margin-bottom:400px;
-	}
-	.separate-bar{
-	  background-color: #ececec;
-  	  padding-left: 80px;
-	  padding-right: 80px;
-	  border-top: 200px;
-	  border-bottom: 200px;	  
-	}
-	.about-box{
-	  font-size: 18px;
-	  background-color:white;
-	  margin-bottom:150px;
-	  margin-top:150px;
-	}
-	#portfolio-box{
-	  background-color: #ececec;
-	  padding-left: 80px;
-	  padding-top: 20px;
-	  margin-top: 150px;
-	  margin-bottom: 150px;
-	  padding-right: 80px;
-	  padding-bottom:20px;
-	  font-size: 18px;
-	}
-	.contact-box{
-	  background-color:white;
-	  padding-top:200px;
-	  padding-bottom:200px;
-	  margin-left:-90px;
-	  margin-right:-90px;
-	  margin-top:150px;
-	  margin-bottom:150px;
+:root{
+  --paper: #ffffff;
+  --ink: #1d1d1f;
+  --muted: #6e6e73;
+  --band: #ececec;
+  --hairline: #d9d9d9;
+  --measure: 38em;
+}
+html{ scroll-behavior: smooth; }
+body{
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: Raleway, sans-serif;
+  font-variant-numeric: lining-nums; /* Raleway's default old-style figures make years bob */
+  -webkit-font-smoothing: antialiased;
+}
+h1{
+  font-weight: 300;
+  font-size: 40px;
+  letter-spacing: .01em;
+  margin: 0 0 32px;
+  text-align: center;
+}
+h4{
+  font-size: 20px;
+  font-weight: 400;
+}
+a:focus-visible{
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
 
-	}
-	.btn {
-	  background-color:white;
-	  border-color:#ececec;
-	  border-width:3px;
-	}
-	.soft-btn{
-	  background-color: white;
-	  border-radius:8px;
-	  padding-top: 5px;
-	  padding-bottom: 5px;
-	  font-size: 14px;
-	  margin-left:2px;
-	  margin-right:2px;
-	  padding-left:5px;
-	  padding-right:5px;
-	}
+/* hero: the name over a faint surface-code lattice */
+.name{
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+}
+.name h1{
+  position: relative;
+  font-size: clamp(44px, 7vw, 76px);
+  letter-spacing: .02em;
+  margin: 0;
+}
+.lattice{
+  position: absolute;
+  width: min(560px, 82vw);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  -webkit-mask-image: radial-gradient(closest-side, #000 45%, transparent 100%);
+  mask-image: radial-gradient(closest-side, #000 45%, transparent 100%);
+}
+.lattice .a{ fill: #f3f3f3; }
+.lattice .b{ fill: #ebebeb; }
+.lattice rect, .lattice path{ stroke: var(--paper); stroke-width: 2; }
+.lattice circle{ fill: #d0d0d0; }
 
-	.paper-box{
-	  padding-top: 5px;
-	  padding-bottom: 20px;
-	}
-	.software-box{
-	  background-color: white;
-	  border-color:black;
-	  border-radius:8px;
-	  padding-top: 5px;
-	  padding-bottom: 5px;
-	  font-size: 14px;
-	  margin-left:2px;
-	  margin-right:2px;
-	  padding-left:5px;
-	  padding-right:5px;
-	}
-	.form-box{
-	  padding-left:300px;
-	  padding-right:300px;
-	  padding-bottom:50px;
-	}
-	.software-gap{
-	  padding-top:10px;
-	  padding-bottom:10px;
-	  background-color:#ececec;
-	}
-	.paper-group{
-	  padding-top: 10px;
-	  padding-bottom: 20px;
-	  padding-left: 10px;
-	  padding-right: 10px;
-	}
-	.paper-group h4{
-	  padding-bottom: 12px;
-	}
-	#portfolio-box a{
-	  color: black;
-	  text-decoration: none;
-	}
-	.paper-card{
-	  background-color: white;
-	  border: 3px solid #ffffff;
-	  border-radius: 8px;
-	  padding: 14px 16px 14px 16px;
-	  margin-bottom: 16px;
-	  text-align: left;
-	  transition: border-color 0.2s ease;
-	}
-	.paper-card:hover{
-	  border-color: #d5d5d5;
-	}
-	.paper-title{
-	  font-size: 15px;
-	  font-weight: bold;
-	  line-height: 1.35;
-	}
-	.paper-venue{
-	  font-size: 12px;
-	  color: #8c8c8c;
-	  letter-spacing: 0.5px;
-	  text-transform: uppercase;
-	  padding-top: 4px;
-	}
-	.paper-desc{
-	  font-size: 13px;
-	  color: #555555;
-	  padding-top: 8px;
-	  line-height: 1.45;
-	}
-	.social{
-	  display: flex;
-	  justify-content: center;
-	  gap: 16px;
-	}
+#bar{
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 30px;
+  font-size: 16px;
+  letter-spacing: .04em;
+}
+#bar a, .about-box a{
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: border-color .2s ease;
+}
+#bar a:hover, #bar a:focus-visible{ border-bottom-color: var(--ink); }
 
-	/* phones: the desktop gaps (300-400px) and 80px gutters swallow a small screen */
-	@media (max-width: 767px){
-	  .name{
-	    padding-top: 38vh;
-	    margin-bottom: 30vh;
-	  }
-	  .about-box{
-	    font-size: 17px;
-	    margin-top: 60px;
-	    margin-bottom: 60px;
-	  }
-	  #portfolio-box{
-	    padding: 12px 6px;
-	    margin-top: 60px;
-	    margin-bottom: 60px;
-	  }
-	  .paper-group{
-	    padding-left: 0;
-	    padding-right: 0;
-	  }
-	  h1{
-	    font-size: 30px;
-	  }
-	  #bar{
-	    font-size: 15px;
-	    line-height: 2;
-	  }
-	}
+.rule{
+  width: 64px;
+  margin: 0 auto;
+  border: 0;
+  border-top: 1px solid var(--hairline);
+}
+
+/* prose sections */
+.about-box{
+  max-width: var(--measure);
+  margin: 140px auto;
+  font-size: 18px;
+  line-height: 1.7;
+}
+.about-box p{ margin: 0 0 1.1em; }
+
+/* projects */
+#portfolio-box{
+  background-color: var(--band);
+  padding: 56px 80px 40px;
+  margin: 140px 0;
+  font-size: 18px;
+}
+#portfolio-box > h1{ margin-bottom: 40px; }
+#portfolio-box a{
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+.paper-group{ padding: 0 10px 28px; }
+.paper-group h4{
+  text-align: left;
+  font-size: 19px;
+  color: var(--ink);
+  margin: 0 0 14px;
+  padding: 0 0 12px 2px;
+  border-bottom: 1px solid #d4d4d4;
+}
+.paper-card{
+  height: 100%;
+  background-color: var(--paper);
+  border: 1px solid var(--paper);
+  border-radius: 8px;
+  padding: 18px 20px 20px;
+  text-align: left;
+  transition: border-color .2s ease;
+}
+#portfolio-box a:hover .paper-card, #portfolio-box a:focus-visible .paper-card{ border-color: #9a9a9a; }
+#portfolio-box a:focus-visible{ outline: none; }
+.paper-group > a + a{ margin-top: 14px; }
+.paper-title{
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+/* venues read like a reference list, set in the blog's Computer Modern */
+.paper-venue{
+  font-size: 14px;
+  color: var(--muted);
+  padding-top: 6px;
+}
+.paper-venue cite{
+  font-family: 'Computer Modern Serif', serif;
+  font-size: 16px;
+  font-style: italic;
+  color: var(--ink);
+  padding-right: 2px;
+}
+.paper-desc{
+  font-size: 14px;
+  color: #555;
+  padding-top: 10px;
+  line-height: 1.6;
+}
+
+/* two columns side by side: share row tracks so cards line up across groups */
+@media (min-width: 992px){
+  #portfolio-box .row{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, auto);
+    column-gap: 10px;
+  }
+  #portfolio-box .row::before, #portfolio-box .row::after{ display: none; }
+  #portfolio-box .row > div{
+    float: none;
+    width: auto;
+    grid-row: 1 / span 4;
+    display: grid;
+    grid-template-rows: subgrid;
+  }
+  .paper-group{
+    grid-row: 1 / span 4;
+    display: grid;
+    grid-template-rows: subgrid;
+    row-gap: 14px;
+  }
+  .paper-group h4{ margin-bottom: 0; }
+  .paper-group > a + a{ margin-top: 0; }
+}
+
+/* contact */
+.contact p{ text-align: center; }
+.social{
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 48px;
+}
+.social a{
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--hairline);
+  border-radius: 50%;
+  color: var(--ink);
+  font-size: 18px;
+  transition: border-color .2s ease, background-color .2s ease;
+}
+.social a:hover, .social a:focus-visible{
+  border-color: var(--ink);
+  background-color: #f6f6f6;
+}
+
+footer{
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+  letter-spacing: .03em;
+  padding: 28px 0 40px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  *{ transition: none !important; }
+}
+
+/* phones: tighter rhythm, full-width cards */
+@media (max-width: 767px){
+  h1{ font-size: 30px; }
+  .about-box{
+    font-size: 17px;
+    margin: 72px auto;
+  }
+  #portfolio-box{
+    padding: 36px 6px 20px;
+    margin: 72px 0;
+  }
+  .paper-group{ padding: 0 0 20px; }
+  #bar{
+    font-size: 15px;
+    gap: 6px 22px;
+  }
+}

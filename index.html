@@ -5,29 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Adam Holmes</title>
 <link rel="stylesheet" href="./css/bootstrap.min.css"/>
-<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
 <link href="./fonts/cmun-serif.css" rel="stylesheet">
 <link rel="stylesheet" href="./css/font-awesome.min.css"/>
 <link rel="stylesheet" href="styles.css">
 <link rel="shortcut icon" type="image/x-icon" href="/favicon-font.ico?">
 </head>
 <div class='container fluid' id='back'>
-	<div class='name'> 
-	<h1  class='text-center'> Adam Holmes </h1>
-		<div class='text-center' id='bar'>
-	    	  <a href='#about' style="color: black">About</a> ||
-	    	  <a href='#projects' style="color: black">Projects</a> ||
-	    	  <a href='blog/' style="color: black">Blog</a> ||
-	    	  <a href='#contact' style="color: black">Contact</a>
-		</div>
-	</div>
+	<header class='name'>
+		<!-- a distance-5 rotated surface code: data qubits, and X/Z stabilizers in two tones -->
+		<svg class='lattice' viewBox='-40 -40 320 320' aria-hidden='true'><rect class="a" x="0" y="0" width="60" height="60"/><rect class="b" x="0" y="60" width="60" height="60"/><rect class="a" x="0" y="120" width="60" height="60"/><rect class="b" x="0" y="180" width="60" height="60"/><rect class="b" x="60" y="0" width="60" height="60"/><rect class="a" x="60" y="60" width="60" height="60"/><rect class="b" x="60" y="120" width="60" height="60"/><rect class="a" x="60" y="180" width="60" height="60"/><rect class="a" x="120" y="0" width="60" height="60"/><rect class="b" x="120" y="60" width="60" height="60"/><rect class="a" x="120" y="120" width="60" height="60"/><rect class="b" x="120" y="180" width="60" height="60"/><rect class="b" x="180" y="0" width="60" height="60"/><rect class="a" x="180" y="60" width="60" height="60"/><rect class="b" x="180" y="120" width="60" height="60"/><rect class="a" x="180" y="180" width="60" height="60"/><path class="a" d="M60 240A30 30 0 0 1 0 240Z"/><path class="a" d="M60 0A30 30 0 0 1 120 0Z"/><path class="a" d="M180 240A30 30 0 0 1 120 240Z"/><path class="a" d="M180 0A30 30 0 0 1 240 0Z"/><path class="b" d="M240 60A30 30 0 0 1 240 120Z"/><path class="b" d="M0 60A30 30 0 0 1 0 0Z"/><path class="b" d="M240 180A30 30 0 0 1 240 240Z"/><path class="b" d="M0 180A30 30 0 0 1 0 120Z"/><circle cx="0" cy="0" r="4.5"/><circle cx="0" cy="60" r="4.5"/><circle cx="0" cy="120" r="4.5"/><circle cx="0" cy="180" r="4.5"/><circle cx="0" cy="240" r="4.5"/><circle cx="60" cy="0" r="4.5"/><circle cx="60" cy="60" r="4.5"/><circle cx="60" cy="120" r="4.5"/><circle cx="60" cy="180" r="4.5"/><circle cx="60" cy="240" r="4.5"/><circle cx="120" cy="0" r="4.5"/><circle cx="120" cy="60" r="4.5"/><circle cx="120" cy="120" r="4.5"/><circle cx="120" cy="180" r="4.5"/><circle cx="120" cy="240" r="4.5"/><circle cx="180" cy="0" r="4.5"/><circle cx="180" cy="60" r="4.5"/><circle cx="180" cy="120" r="4.5"/><circle cx="180" cy="180" r="4.5"/><circle cx="180" cy="240" r="4.5"/><circle cx="240" cy="0" r="4.5"/><circle cx="240" cy="60" r="4.5"/><circle cx="240" cy="120" r="4.5"/><circle cx="240" cy="180" r="4.5"/><circle cx="240" cy="240" r="4.5"/></svg>
+		<h1>Adam Holmes</h1>
+		<nav id='bar'>
+			<a href='#about'>About</a>
+			<a href='#projects'>Projects</a>
+			<a href='blog/'>Blog</a>
+			<a href='#contact'>Contact</a>
+		</nav>
+	</header>
 
   <a name="about"></a>
-  <svg width="100%" height="10">
-	    <rect x="20" y="2" rx="20" ry="2" width="100%" height="2" style="fill:#ececec" />
-
-
-  </svg>
+  <hr class='rule'>
 
 	<div class='about-box'>
 		<h1 class='text-center'> About </h1>
@@ -37,13 +35,9 @@
 
 			<p>I received my master's degree and Ph.D. from the University of Chicago in 2020 in computer science and quantum system architecture, and a bachelor's degree physics concentrating in computer science from Cornell University in 2016. I am primarily interested in efficient quantum error correction and error mitigation protocols, quantum algorithm design and architectural optimization, and interesting ways to prove scaling properties of quantum information processing techniques. Through my academic career I have worked in research characterizing properties and fabrication techniques of superconducting materials, modeling liquid helium cooling manifolds for synchrotrons and linear accelerators, building compiler toolchains for quantum computing platforms, and performing detailed system design of quantum information processing devices.</p>
 	</div>
-  <div class='about-box'> </div>
   
   <a name="projects"></a>
-  <svg width="100%" height="10">
-	    <rect x="20" y="2" rx="20" ry="2" width="100%" height="2" style="fill:#ececec" />
-
-  </svg>
+  <hr class='rule'>
 
   <div id='portfolio-box'>
 
@@ -55,19 +49,19 @@
 
         <a href="https://arxiv.org/abs/2606.13521" target="_blank"><div class='paper-card'>
           <div class='paper-title'>Quantum Logic Codes: Complete Transversal Logical Clifford Instruction Sets for High-Rate Stabilizer Quantum Error Correcting Codes</div>
-          <div class='paper-venue'>arXiv &middot; 2026</div>
+          <div class='paper-venue'><cite>arXiv</cite> 2026</div>
           <div class='paper-desc'>Universal lower bounds on the depth needed to generate a full logical Clifford algebra, and a high-rate code family with a constant-depth transversal Clifford instruction set.</div>
         </div></a>
 
         <a href="https://arxiv.org/abs/2005.04351" target="_blank"><div class='paper-card'>
           <div class='paper-title'>Efficient Quantum Circuits for Accurate State Preparation of Smooth, Differentiable Functions</div>
-          <div class='paper-venue'>arXiv &middot; 2020</div>
+          <div class='paper-venue'><cite>arXiv</cite> 2020</div>
           <div class='paper-desc'>Matrix product state methods that encode Gaussian, lognormal, and related distributions into linear-depth circuits at high fidelity.</div>
         </div></a>
 
         <a href="https://arxiv.org/abs/1809.01302" target="_blank"><div class='paper-card'>
           <div class='paper-title'>Magic-State Functional Units: Mapping and Scheduling Multi-Level Distillation Circuits for Fault-Tolerant Quantum Architectures</div>
-          <div class='paper-venue'>MICRO &middot; 2018</div>
+          <div class='paper-venue'><cite>MICRO</cite> 2018</div>
           <div class='paper-desc'>First detailed hardware designs of space-time optimized magic-state factories for surface code error-corrected machines.</div>
         </div></a>
         </div>
@@ -79,19 +73,19 @@
 
         <a href="https://arxiv.org/abs/2406.18759" target="_blank"><div class='paper-card'>
           <div class='paper-title'>Quantum Computing for Corrosion-Resistant Materials and Anti-Corrosive Coatings Design</div>
-          <div class='paper-venue'>npj Quantum Information &middot; 2025</div>
+          <div class='paper-venue'><cite>npj Quantum Information</cite> 2025</div>
           <div class='paper-desc'>An end-to-end workflow and resource analysis for simulating corrosion inhibition in magnesium and niobium alloys.</div>
         </div></a>
 
         <a href="https://arxiv.org/abs/2408.13244" target="_blank"><div class='paper-card'>
           <div class='paper-title'>Prospects for Quantum Computation in Propellant Design: Assessing the Stability of Cyclic Ozone in Nanoscale Confinement</div>
-          <div class='paper-venue'>arXiv &middot; 2024</div>
+          <div class='paper-venue'><cite>arXiv</cite> 2024</div>
           <div class='paper-desc'>Logical and physical overhead estimates for phase estimation of cyclic ozone confined in fullerene cages, a candidate high-impulse propellant.</div>
         </div></a>
 
         <a href="https://arxiv.org/abs/2406.18744" target="_blank"><div class='paper-card'>
           <div class='paper-title'>Quantum Resources Required for Binding Affinity Calculations of Amyloid Beta</div>
-          <div class='paper-venue'>arXiv &middot; 2024</div>
+          <div class='paper-venue'><cite>arXiv</cite> 2024</div>
           <div class='paper-desc'>A computational workflow and quantum resource estimates for metal binding affinities in an intrinsically disordered protein.</div>
         </div></a>
         </div>
@@ -105,19 +99,19 @@
 
         <a href="https://arxiv.org/abs/2604.16216" target="_blank"><div class='paper-card'>
           <div class='paper-title'>A Digitally Controlled Silicon Quantum Processing Unit</div>
-          <div class='paper-venue'>Nature &middot; 2026</div>
+          <div class='paper-venue'><cite>Nature</cite> 2026</div>
           <div class='paper-desc'>A cryogenic CMOS controller, superconducting ribbon cable, and 54 quantum dot exchange-only device advancing the state of the art by an order of magnitude.</div>
         </div></a>
 
         <a href="https://arxiv.org/abs/2004.04794" target="_blank"><div class='paper-card'>
           <div class='paper-title'>NISQ+: Boosting Quantum Computing Power by Approximating Quantum Error Correction</div>
-          <div class='paper-venue'>ISCA &middot; 2020</div>
+          <div class='paper-venue'><cite>ISCA</cite> 2020</div>
           <div class='paper-desc'>Approximate error correction, accelerated in classical hardware, to extend the compute volume reachable by near-term machines.</div>
         </div></a>
 
         <a href="https://arxiv.org/abs/1811.02125" target="_blank"><div class='paper-card'>
           <div class='paper-title'>Impact of Qubit Connectivity on Quantum Algorithm Performance</div>
-          <div class='paper-venue'>Quantum Science and Technology &middot; 2020</div>
+          <div class='paper-venue'><cite>Quantum Science and Technology</cite> 2020</div>
           <div class='paper-desc'>Mapping QFT, Grover diffusion, and Jordan-Wigner parity workloads onto grid, ladder, and linear arrays to price limited connectivity.</div>
         </div></a>
         </div>
@@ -129,50 +123,40 @@
 
         <a href="https://arxiv.org/abs/2609.13388" target="_blank"><div class='paper-card'>
           <div class='paper-title'>CUDA-Q Logical: Retargetable Compilation for Fault-Tolerant Quantum Computing</div>
-          <div class='paper-venue'>arXiv &middot; 2026</div>
+          <div class='paper-venue'><cite>arXiv</cite> 2026</div>
           <div class='paper-desc'>Compiler infrastructure mapping logical programs onto heterogeneous QEC codes, fault-tolerant execution models, and real-time classical control.</div>
         </div></a>
 
         <a href="https://arxiv.org/abs/2202.11142" target="_blank"><div class='paper-card'>
           <div class='paper-title'>An LLVM-Based C++ Compiler Toolchain for Variational Hybrid Quantum-Classical Algorithms and Quantum Accelerators</div>
-          <div class='paper-venue'>arXiv &middot; 2022</div>
+          <div class='paper-venue'><cite>arXiv</cite> 2022</div>
           <div class='paper-desc'>C++ language extensions, a quantum executable format, and a compiler path that builds a variational program once for all of its iterations.</div>
         </div></a>
 
         <a href="https://dl.acm.org/doi/10.1145/2694344.2694357" target="_blank"><div class='paper-card'>
           <div class='paper-title'>Compiler Management of Communication and Parallelism for Quantum Computation</div>
-          <div class='paper-venue'>ASPLOS &middot; 2015</div>
+          <div class='paper-venue'><cite>ASPLOS</cite> 2015</div>
           <div class='paper-desc'>A Multi-SIMD architecture and the schedulers that map program descriptions onto its parallel regions to shorten execution time.</div>
         </div></a>
         </div>
       </div>
     </div>
   </div>
-  <svg width="100%" height="10">
-	    <rect x="20" y="2" rx="20" ry="2" width="100%" height="2" style="fill:#ececec" />
-  </svg>
-
-
+  <hr class='rule'>
 
 <a name='contact'></a>
-<div class='about-box'>
+<div class='about-box contact'>
 <h1 class='text-center'> Contact </h1>
 <p> If you have questions about my research, software, papers, or thoughts about quantum computing or physics, feel free to contact me through my social media.</p>
 
-  <svg width="100%" height="100">
-	    <rect x="20" y="2" rx="20" ry="2" width="100%" height="2" style="fill:white" />
-  </svg>
-
 <div class='social'>
-	<a href="https://www.linkedin.com/in/adamdholmes" target="_blank" title="LinkedIn"><button class='btn'><i class="fa fa-linkedin"></i></button></a>
-	<a href="https://scholar.google.com/citations?user=kmSVgx0AAAAJ" target="_blank" title="Google Scholar"><button class='btn'><i class="fa fa-graduation-cap"></i></button></a>
-	<a href="https://github.com/adholmes7" target="_blank" title="GitHub"><button class='btn'><i class="fa fa-github"></i></button></a>
+	<a href="https://www.linkedin.com/in/adamdholmes" target="_blank" title="LinkedIn" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+	<a href="https://scholar.google.com/citations?user=kmSVgx0AAAAJ" target="_blank" title="Google Scholar" aria-label="Google Scholar"><i class="fa fa-graduation-cap"></i></a>
+	<a href="https://github.com/adholmes7" target="_blank" title="GitHub" aria-label="GitHub"><i class="fa fa-github"></i></a>
   </div>
 
 </div>
-<svg width="100%" height="10">
-	    <rect x="20" y="2" rx="20" ry="2" width="100%" height="2" style="fill:#ececec" />
-  </svg>
-  <h6 class='text-center'> Written and coded by Adam Holmes </h6>
+  <hr class='rule'>
+  <footer>Written and coded by Adam Holmes</footer>
   </div>
 </div>
