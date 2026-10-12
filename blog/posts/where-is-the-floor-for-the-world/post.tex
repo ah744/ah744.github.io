@@ -83,11 +83,33 @@ What we see is nearly exact linearity, where the futures show up as nearly as cl
 The leftmost point shows a signal floor from this study. On the side camera the closest matches start at 0.13, while on the wrist camera it shows up at 0.26. The intercepts printed in the legends come from that extrapolation, which we don't have sufficient data to really defend yet.
 The reference lines are drawn on top to show how close these are to the other measured error floors. The grey nuisance floor at 0.052 is the lower bound, and the red 2B step-1 error at 0.123 is the model. The data never gets below 0.13, so it never enters the band between them. While this study seems well-designed, the data limits it from really showing us clear answers. A next step to help resolve this is to directly generate new simulation data that ablates the futures by fixing an identical state, apply the identical action, and sample several futures, which I might try.
 
-The last thing I tried here is an activity we do a lot of in quantum error correction research: error budgeting and decomposition. Based on a total error floor $E$ sitting at roughly 0.2, what decomposition of that error is supported with an interpretable set of distinct error sources?
+The last thing I tried here is an activity we do a lot of in quantum error correction research: error budgeting and decomposition. Based on a total error floor $E$ sitting at roughly 0.2, what decomposition of that error is supported with an interpretable set of distinct error sources? 
 
 \begin{figure}
 \includegraphics{fig6.png}
 \end{figure}
+What we see here are a few distinct things. For all of the model sizes from 22M out to 8B, we can try dissecting the total per-token L1 error into a distinct set of sources that should, hopefully, explain the error floor that is predicted by the second-order scaling law. Here we have a few distinct sources that we can pull out:
+
+\begin{itemize}
+\item Encoder noise floor (dark blue): this is set by measuring the differences in features in the latent space between two motionless frames, 1/15 of a second apart, by running them both through the encoder and calculating L1 differences. This intuitively should set a floor that no predictor can disentangle, measured at 0.071.
+\item Larger timestep frame motion of idling scenes (light blue): this is the L1 difference of the latent space representation of frames that are 0.8 seconds apart (12x larger in time than the previous measurement, matched to the eval protocol in the work). Scenes here don't really change that much qualitatively, but features move by on average 0.078.
+\item Gap above the idling scenes (grey): this is a measurement of how far the one-step prediction sits above the effective floor (set by the combination of both the encoder noise floor and the idling scene reference). This is shrinking by model size.
+\item Error from single-step predictions (orange): this is the cost of sending one of the model's own predictions back in as input, as opposed to the ``teacher-forced" error where the model sees the real encoder features as its input. 
+\item The rollout cost (red): this is the error of rollouts beyond one step. Measured out through nine-step averages matched to the paper.
+
+ \end{itemize}
+
+
+
+So altogether this tells a story that perhaps 1/3 of the error floor $E$ measured by the second-order scaling law is noise set by true unlearnable ambiguity in the V-JEPA 2.1 encoder representation space. The rest appears to be set by how far idle scenes drift in the latent space over a step of size set by the evals, plus the costs of rollout protocols and a shrinking unknown out-of-model residual. Note that I'm assuming that errors add linearly here, which they may not. There is the possibility that errors add in quadrature, which would change this analysis somewhat.
+
+
+The last-last thing I wanted to figure out was whether this idling reference error box (light blue) could be learnable. Some tools from mechanistic interpretability can be useful here too, specifically linear probing. The idea is that the models seem to be sitting right on the idle scene change error, which itself I had computed as an average across the full dataset. So we can pick a subset of the data and try to see if it's learnable by inspection: fit a regression over the current feature, previous feature and the action, to the per-token latent space change $z+{t+1} - z_t$ on half of the held-out data and score it on the other half. Take that probe and compare it at with the model (8B here) residual $z_{t+1} - \hat{z}_{t+1}$. This basically should capture what of the drift is has linear structure, and should give me a way to see if the models are capturing this and/or anything different. 
+
+\begin{figure}
+  \includegraphics{fig7.png}
+\end{figure}
+I first cut out the noise from the encoder floor that I measured earlier (the 0.052 coming from two frames 1/15 seconds apart for idling data), which leaves a chunk of the idle-scene change error. That's shown in this graphic. Of the idle-scene change error, the linear probe seems to capture something like 3$\%$ of it in L1 space, and the 8B model does almost 10x better. That to me says that there actually could be opportunity to disentangle the drift, with a suitably sized and capable model. It's tricky though, since clearly these models are stalling out in loss space as size continues to increase, which creates the second-order scaling law. This seems probably architectural, not scaling-limited, and in some sense then while this particular architecture might be data-saturated, there seems to be more room at the bottom for other architectures to explore.
 \section{}
 
 
